@@ -2,6 +2,7 @@
 import Restaurant from "./Restaurant";
 import resList from "../utils/mockData";
 import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
 
@@ -66,38 +67,41 @@ const Body = () => {
 
      const jsonData = await data.json();
 
-    console.log(jsonData);
+    //console.log(jsonData);
     
-    setListOfRestoRents(jsonData.data.cards["2"].data.data.cards);
+    //setListOfRestoRents(jsonData.data.cards["2"].data.data.cards);
   };
 
+  // conditinal rendering 
  
-  
+  if (ListOfRestoRents.length === 0) {
 
-  return (
-    <div className="body">
-      <div className="search">
-        <button
-          onClick={() => {
-            const TestLists = ListOfRestoRents.filter(
-              (res) => res.info.avgRatingString > 4
-            );
+    <Shimmer />
+  }
+    return (
+      <div className="body">
+        <div className="search">
+          <button
+            onClick={() => {
+              const TestLists = ListOfRestoRents.filter(
+                (res) => res.info.avgRatingString > 4
+              );
 
-            setListOfRestoRents(TestLists);
+              setListOfRestoRents(TestLists);
 
-            //console.log(RestoLists);
-          }}
-        >
-          Top Rated Restorents
-        </button>
+              //console.log(RestoLists);
+            }}
+          >
+            Top Rated Restorents
+          </button>
+        </div>
+        <div className="res-container">
+          {ListOfRestoRents.map((restaurants) => (
+            <Restaurant key={restaurants.info.id} resData={restaurants} />
+          ))}
+        </div>
       </div>
-      <div className="res-container">
-        {ListOfRestoRents.map((restaurants) => (
-          <Restaurant key={restaurants.info.id} resData={restaurants} />
-        ))}
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Body;
