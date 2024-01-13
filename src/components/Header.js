@@ -16,6 +16,6 @@ const Header = () => {
         </ul>
       </div>
     </div>
-  );
+  )
 };
 export default Header;
