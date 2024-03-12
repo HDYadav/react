@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 import useBody from "../utils/useBody"; 
 
 
-const Body = () => {
 
+const Body = () => {
   const ListOfRestoRents = useBody();
   const RestaurantCardPromoted = withPromotedLabel(Restaurant);
-  
- //console.log(ListOfRestoRents);
-  
+ 
+ 
+ 
   return ListOfRestoRents.length === 0 ? (
     <Shimmer />
   ) : (

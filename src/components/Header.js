@@ -4,14 +4,9 @@ import { LOGO_URL } from "../utils/constans";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
-const Header = () => {
-
-  //const btnNameReact = "Login";
-
+const Header = () => { 
   const [btnNameReact, setbtnNameReact] = useState("Login");
-
-  //console.log("Header called");
-
+ 
   useEffect(() => {
    // console.log("use effect rendered");
   });
@@ -41,12 +36,10 @@ const Header = () => {
           </li>
           <button
             className="login"
-            onClick={() => {
+            onClick={() => { 
               btnNameReact === "Login"
                 ? setbtnNameReact("Logout")
-                : setbtnNameReact("Login");
-
-              //  console.log("login");
+                : setbtnNameReact("Login"); 
             }}
           >
             {btnNameReact}

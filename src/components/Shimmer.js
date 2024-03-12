@@ -1,5 +1,5 @@
 const Shimmer = () => {
-  console.log("Shimmer");
+ 
     return (
       <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
         <div className="shimmer h-64 w-full bg-gray-300 animate-pulse"></div>
